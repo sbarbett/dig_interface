@@ -8,8 +8,8 @@ This project originated from a request by my colleagues. We work for an authorit
 Go to your Guide Admin. It should go without saying, but you must be a Zendesk Administrator to do this. From Guide Admin, click on the "cogwheel" in the far left navigation panel. Scroll down to "Security" and look for this setting.
 
 ```
-\[ \] Display unsafe content
-_Warning: Enabling this will allow potentially malicious code to be executed when viewing articles._
+[ ] Display unsafe content
+Warning: Enabling this will allow potentially malicious code to be executed when viewing articles.
 ```
 
 Check the box. This has to be enabled otherwise ZenDesk will erase any JS you attempt to embed in the source of your articles.
@@ -62,15 +62,15 @@ In the Management Console:
 
 ## Deploying to ZenDesk
 
-Go to your Guide, add a new article, click the "`</>`" symbol on the rich text editor to open the "source code" editor then simply paste in the contents of interface.html
+Go to your Guide, add a new article, click the "`</>`" symbol on the rich text editor to open the "source code" then simply paste in the contents of interface.html
 
 ## The Interface
 
-I didn't attempt to fully replicate all the functionality of the command line dig tool. Dig has a lot of different switches and not all of them seem particularly useful. I may expand the options in future iterations of the code.
+I didn't attempt to fully replicate all the functionality of the command line dig tool. Dig has a lot of different switches and not all of them seem particularly useful. I may expand the options in future iterations of this code.
 
 ### Domains
 
-This is the only real "required" field. These are the domains/hostnames to be queried. They can be separated by line breaks, commas or semicolons. The code will attempt to validate that these are valid DNS.
+This is the only truly "required" field. These are the domains/hostnames to be queried. They can be separated by line breaks, commas or semicolons. The code will attempt to validate that these are valid DNS.
 
 ### Record Type
 
