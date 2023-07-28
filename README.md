@@ -24,7 +24,7 @@ Create a Lambda function like so:
 4. Expand "Advanced Settings"
 5. Check the box next to "Enable function URL"
 6. Select "NONE" for "Auth type"
-7. Check the box nect to "Configure cross-origin resource sharing (CORS)"
+7. Check the box next to "Configure cross-origin resource sharing (CORS)"
 8. Click "Create Function"
 
 You can copy your function url from the function overview panel now. There's a couple more things that need to be done, configuration-wise.
@@ -62,7 +62,11 @@ In the Management Console:
 
 ## Deploying to ZenDesk
 
-Go to your Guide, add a new article, click the "`</>`" symbol on the rich text editor to open the "source code" then simply paste in the contents of interface.html
+Go to your Guide, add a new article, click the "`</>`" symbol on the rich text editor to open the "source code" then simply paste in the contents of interface.html. Replace the example url with your actual Lambda function url.
+
+```javascript
+const lambdaUrl = 'https://example.lambda-url.region.on.aws/'
+```
 
 ## The Interface
 
