@@ -1,7 +1,7 @@
 dig_interface
 ======================
 
-This project arose from a request from my colleagues. We work for an authoritative DNS provider and they wanted to embed a dig-like interface within our ZenDesk help center. I have another similar applet that uses DoH to perform DNS lookups straight from Guide using JS. For this utility, however, I'm doing the UDP DNS querying "server-side" on a Lambda function using the 'dnspython' module. There's a bit of legwork involved in getting this functioning properly. Anyone that's worked with Lambda is probably aware that most of the popular Python modules (like 'requests') aren't available "out-of-box" with their (somewhat barebones) Python 3 implementation. Also, ZenDesk defaultly doesn't allow you to embed scripts in your Guide. You have to enable a frighteningly-worded setting under Guide Admin. I'll walk through what I had to do to get things working here in the README.
+This project originated from a request by my colleagues. We work for an authoritative DNS provider, and they had the idea to embed a dig-like interface within our ZenDesk help center. I have another similar applet that uses DoH to fetch DNS lookups, using JS, from a form in Guide. For this utility, however, I'm doing the UDP DNS querying "server-side" on a Lambda function with the 'dnspython' module. There's a bit of legwork involved in getting this to function properly. Anyone that's worked with Lambda is probably aware that most of the popular Python modules (like 'requests') aren't available "out-of-box" with their (somewhat barebones) Python 3 implementation. Also, ZenDesk, by default, doesn't allow you to embed scripts in your Guide. You have to enable a frighteningly-worded setting through Guide Admin.
 
 ## Zendesk Guide: Displaying "Unsafe Content"
 
@@ -34,11 +34,11 @@ You can copy your function url from the function overview panel now. There's a c
 5. Under "Allow headers" add the following: "content-type", "access-control-allow-origin" and "access-control-allow-credentials"
 6. Under "Allow methods" select "POST" or "*"
 
-In order for our JS to fetch this function from the browser, we have to enable CORS and add the headers that ZenDesk includes. This particular applet only uses POST, so that's the only HTTP method I've enabled, but you can accept them all if you like.
+In order for our JS to fetch this function from the browser, we have to enable CORS and add the headers included by ZenDesk. This particular applet only uses POST, so that's the only HTTP method I've enabled.
 
 ## Deploying to Lambda
 
-You need to install the 'dnspython' libraries to a local directory with pip using the -t switch.
+You need to install the 'dnspython' library to a local directory with pip using the -t switch.
 
 ```bash
 mkdir lambda_package
