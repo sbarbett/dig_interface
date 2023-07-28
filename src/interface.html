@@ -1,0 +1,287 @@
+<form id="digForm">
+  <label for="domains">Domains:</label><br>
+  <textarea id="domains" name="domains"></textarea>
+  <p>
+    Separate your domains with line breaks, commas or semicolons.
+  </p>
+  <label for="rtype">Record Type:</label><br>
+  <select id="rtype" name="rtype">
+    <option value="NONE">Unspecified</option>
+    <option selected="selected" value="A">A</option>
+    <option value="AAAA">AAAA</option>
+    <option value="ANY">ANY</option>
+    <option value="AXFR">AXFR</option>
+    <option value="CNAME">CNAME</option>
+    <option value="MX">MX</option>
+    <option value="NS">NS</option>
+    <option value="PTR">PTR</option>
+    <option value="SOA">SOA</option>
+    <option value="TXT">TXT</option>
+    <option value="Reverse">Reverse</option>
+    <option value=""></option>
+    <option value="A">A</option>
+    <option value="A6">A6</option>
+    <option value="AAAA">AAAA</option>
+    <option value="AFSDB">AFSDB</option>
+    <option value="APL">APL</option>
+    <option value="ATMA">ATMA</option>
+    <option value="CAA">CAA</option>
+    <option value="CERT">CERT</option>
+    <option value="CNAME">CNAME</option>
+    <option value="DNAME">DNAME</option>
+    <option value="DNSKEY">DNSKEY</option>
+    <option value="DS">DS</option>
+    <option value="EID">EID</option>
+    <option value="GID">GID</option>
+    <option value="GPOS">GPOS</option>
+    <option value="HINFO">HINFO</option>
+    <option value="HTTPS">HTTPS</option>
+    <option value="ISDN">ISDN</option>
+    <option value="KEY">KEY</option>
+    <option value="KX">KX</option>
+    <option value="LOC">LOC</option>
+    <option value="MB">MB</option>
+    <option value="MD">MD</option>
+    <option value="MF">MF</option>
+    <option value="MG">MG</option>
+    <option value="MINFO">MINFO</option>
+    <option value="MR">MR</option>
+    <option value="MX">MX</option>
+    <option value="NAPTR">NAPTR</option>
+    <option value="NIMLOC">NIMLOC</option>
+    <option value="NSEC">NSEC</option>
+    <option value="NSEC3">NSEC3</option>
+    <option value="NSEC3PARAM">NSEC3PARAM</option>
+    <option value="NULL">NULL</option>
+    <option value="NS">NS</option>
+    <option value="NSAP">NSAP</option>
+    <option value="NSAP-PTR">NSAP-PTR</option>
+    <option value="NXT">NXT</option>
+    <option value="OPT">OPT</option>
+    <option value="PTR">PTR</option>
+    <option value="PX">PX</option>
+    <option value="RP">RP</option>
+    <option value="RRSIG">RRSIG</option>
+    <option value="RT">RT</option>
+    <option value="SIG">SIG</option>
+    <option value="SINK">SINK</option>
+    <option value="SOA">SOA</option>
+    <option value="SPF">SPF</option>
+    <option value="SRV">SRV</option>
+    <option value="SSHFP">SSHFP</option>
+    <option value="SVCB">SVCB</option>
+    <option value="TKEY">TKEY</option>
+    <option value="TLSA">TLSA</option>
+    <option value="TSIG">TSIG</option>
+    <option value="TXT">TXT</option>
+    <option value="UID">UID</option>
+    <option value="UINFO">UINFO</option>
+    <option value="UNSPEC">UNSPEC</option>
+    <option value="WKS">WKS</option>
+    <option value="X25">X25</option>
+  </select>
+  <br>
+  <br>
+  <h2>Options:</h2>
+  <input id="trace" type="checkbox" name="trace"> Trace
+  <p>
+    Enables tracing of the delegation path from the root name servers
+  </p>
+  <input id="short" type="checkbox" name="short"> Short
+  <p>
+    Provide a terse answer. The default is to print the answer in a verbose form.
+  </p>
+  <input id="norec" type="checkbox" name="norec"> No recursion
+  <p>
+    Specifies that recursion is not desired. This is implicit with "nssearch"
+    and "trace" queries.
+  </p>
+  <input id="dnssec" type="checkbox" name="dnssec"> DNSSEC
+  <p>Requests that DNSSEC records be sent.</p>
+  <input id="cdflag" type="checkbox" name="cdflag"> Checking disabled
+  <p>
+    Requests the server to not perform DNSSEC validation of responses.
+  </p>
+  <input id="nssearch" type="checkbox" name="nssearch"> Search all authoritative
+  nameservers
+  <p>
+    Attempts to find the authoritative name servers for the zone containing the
+    name being looked up, and display the SOA record that each name server has
+    for the zone.
+  </p>
+  <label for="nameservers">Nameservers:</label><br>
+  <textarea id="nameservers" name="nameservers"></textarea>
+  <p>
+    By default, if no nameservers are specified, this will use Vercara's public
+    DNS, 64.6.64.6 and 64.6.65.6. <a href="https://public-dns.info/">Here</a>
+    is a useful list of public DNS servers.
+  </p>
+  <input id="submitQuery" type="button" value="Submit Query">
+</form>
+<p>
+  <label for="base64">Base64 encoded string:</label><br>
+  <input id="base64" type="text">
+</p>
+<p>
+  This string automatically updates as you modify the input fields of this form.
+  It can be copied and shared. It is a base64 encoded hash of the JSON output displayed
+  below. Pasting an existing string into this field will automatically populate
+  the form.
+</p>
+<p>
+  <label for="json">JSON Request:</label>
+</p>
+<pre id="json">&nbsp;</pre>
+<p>
+  <label for="response">JSON Response:</label>
+</p>
+<pre id="response">&nbsp;</pre>
+<p>
+  <label for="digOutput">DiG Output:</label>
+</p>
+<pre id="digOutput">&nbsp;</pre>
+<p>
+  <script>
+    const lambdaUrl = 'https://example.lambda-url.region.on.aws/'
+	const form = document.getElementById('digForm');
+	const base64Input = document.getElementById('base64');
+	const jsonDisplay = document.getElementById('json');
+	const submitQuery = document.getElementById('submitQuery');
+	
+	const options = [
+		{ id: 'trace', command: '+trace' },
+		{ id: 'short', command: '+short' },
+		{ id: 'norec', command: '+norecurse' },
+		{ id: 'dnssec', command: '+dnssec' },
+		{ id: 'cdflag', command: '+cdflag' },
+		{ id: 'nssearch', command: '+nssearch' },
+	];
+
+	function formatDigOutput(responseJson) {
+		let formattedOutput = '';
+
+		responseJson.forEach(domainResult => {
+			let optionsString = '';
+			let isShort = false;
+			options.forEach(option => {
+				if (form.elements[option.id].checked) {
+					optionsString += ' ' + option.command;
+					if (option.id === 'short') {
+						isShort = true;
+					}
+				}
+			});
+
+			formattedOutput += `\n; <<>> DiG <<>> @${domainResult.results[0].nameserver} ${domainResult.domain}${optionsString}`;
+			
+			if (isShort) {
+				domainResult.results.forEach(result => {
+					if (result.answer) {
+						result.answer.forEach(answer => {
+							formattedOutput += `\n${answer}`;
+						});
+					}
+				});
+			} else {
+				formattedOutput += `\n; (1 server found)`;
+				formattedOutput += `\n;; global options: +cmd`;
+				formattedOutput += `\n;; Got answer:`;
+				
+				domainResult.results.forEach(result => {
+					formattedOutput += `\n;; ->>HEADER<<- opcode: QUERY, status: ${result.answer === 'No answer' ? 'NXDOMAIN' : 'NOERROR'}, id: ${result.query_id}`;
+					formattedOutput += `\n;; flags: qr rd ra; QUERY: 1, ANSWER: ${result.answer === 'No answer' ? '0' : '1'}, AUTHORITY: 0, ADDITIONAL: 1`;
+
+					formattedOutput += `\n\n;; OPT PSEUDOSECTION:`;
+					formattedOutput += `\n; EDNS: version: 0, flags: do; udp: 1232`;
+					formattedOutput += `\n;; QUESTION SECTION:`;
+					formattedOutput += `\n;${domainResult.domain}. IN A`;
+
+					formattedOutput += `\n\n;; ANSWER SECTION:`;
+					if(result.answer !== 'No answer') {
+						formattedOutput += `\n${domainResult.domain}. 123 IN A ${result.answer}`;
+					}
+
+					formattedOutput += `\n;; Query time: ${result.query_time} msec`;
+					formattedOutput += `\n;; SERVER: ${result.nameserver}#${result.answer === 'No answer' ? '53' : result.msg_size}(${result.nameserver})`;
+					formattedOutput += `\n;; WHEN: ${new Date().toUTCString()}`;
+					formattedOutput += `\n;; MSG SIZE rcvd: ${result.msg_size}\n`;
+				});
+			}
+		});
+
+		return formattedOutput;
+	}
+
+	// Helper function to process input string
+	const processInput = (input) => {
+	  return input.replace(/[;,]/g, '\n').split('\n').filter(line => line.trim() !== '');
+	}
+
+	// Create the function to update base64 and JSON fields based on form data
+	const updateBase64FromForm = () => {
+	  let nameservers = form.elements['nameservers'].value;
+	  nameservers = nameservers ? processInput(nameservers) : ["64.6.64.6", "64.6.65.6"];
+	  
+	  let obj = {
+		domains: processInput(form.elements['domains'].value),
+		type: form.elements['rtype'].value,
+		trace: form.elements['trace'].checked,
+		short: form.elements['short'].checked,
+		norec: form.elements['norec'].checked,
+		dnssec: form.elements['dnssec'].checked,
+		cdflag: form.elements['cdflag'].checked,
+		nssearch: form.elements['nssearch'].checked,
+		nameservers: nameservers
+	  };
+	  let jsonString = JSON.stringify(obj);
+	  base64Input.value = btoa(jsonString);
+	  jsonDisplay.textContent = JSON.stringify(obj, null, 2);
+	}
+
+	// Create the function to update form fields from the base64 input
+	const updateFormFromBase64 = () => {
+	  let obj = JSON.parse(atob(base64Input.value));
+	  form.elements['domains'].value = obj.domains.join('\n');
+	  form.elements['rtype'].value = obj.type;
+	  form.elements['trace'].checked = obj.trace;
+	  form.elements['short'].checked = obj.short;
+	  form.elements['norec'].checked = obj.norec;
+	  form.elements['dnssec'].checked = obj.dnssec;
+	  form.elements['cdflag'].checked = obj.cdflag;
+	  form.elements['nssearch'].checked = obj.nssearch;
+	  form.elements['nameservers'].value = obj.nameservers.join('\n');
+	  jsonDisplay.textContent = JSON.stringify(obj, null, 2);
+	}
+	
+	// Event listener for the submit button
+	submitQuery.addEventListener('click', function() {
+		updateBase64FromForm();
+
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: base64Input.value
+		};
+
+		fetch(lambdaUrl, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: jsonDisplay.textContent
+		})
+		.then(response => response.json())
+		.then(data => {
+			const responsePre = document.getElementById('response');
+			responsePre.textContent = JSON.stringify(data, null, 2);
+			
+			// Update the DiG output
+			const digOutputPre = document.getElementById('digOutput');
+			digOutputPre.textContent = formatDigOutput(data);
+		})
+		.catch(error => console.error('Error:', error));
+	});
+
+	// Set up event listeners
+	form.addEventListener('input', updateBase64FromForm);
+	base64Input.addEventListener('input', updateFormFromBase64);
+</script>
+</p>
