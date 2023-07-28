@@ -7,8 +7,10 @@ This project originated from a request by my colleagues. We work for an authorit
 
 Go to your Guide Admin. It should go without saying, but you must be a Zendesk Administrator to do this. From Guide Admin, click on the "cogwheel" in the far left navigation panel. Scroll down to "Security" and look for this setting.
 
+```
 \[ \] Display unsafe content
 _Warning: Enabling this will allow potentially malicious code to be executed when viewing articles._
+```
 
 Check the box. This has to be enabled otherwise ZenDesk will erase any JS you attempt to embed in the source of your articles.
 
